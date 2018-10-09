@@ -38,13 +38,13 @@ class Calculator {
     }
     
     // subtract numbers
-    func subtract(lhs: Int, rhs: Int) {
+    func subtract(lhs: Int, rhs: Int) -> Int{
         return lhs - rhs
     }
     
     // subtract keyval dictionaries
     func subtract(lhs: [String: Int], rhs: [String: Int]) -> [String: Int] {
-        return ["x": lhs["x"]! - rhs["x"]!, "y": lhs["y"]! - rhs["y"]]
+        return ["x": lhs["x"]! - rhs["x"]!, "y": lhs["y"]! - rhs["y"]!]
     }
     
     // subtract tuples
@@ -53,12 +53,12 @@ class Calculator {
     }
     
     // divide numbers
-    func divide(lhs: Int, rhs: Int) {
+    func divide(lhs: Int, rhs: Int) -> Int{
         return lhs / rhs
     }
     
     // multiply numbers
-    func multiply(lhs: Int, rhs: Int) {
+    func multiply(lhs: Int, rhs: Int) -> Int{
         return lhs * rhs
     }
     
@@ -79,11 +79,13 @@ class Calculator {
         return op(lhs, rhs)
     }
     
+    
     // operation on array & int
-    func mathOp(args: Int, beg: Int, op: (Int, Int) -> Int) -> Int {
+    public func mathOp(args: [Int], beg: Int, op: (Int, Int) -> Int) -> Int {
         var sum: Int = beg
-        for num in args {
-            sum = op(sum, num)
+        
+        for x in args{
+            sum = op(sum, x)
         }
         return sum
     }
